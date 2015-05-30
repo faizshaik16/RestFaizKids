@@ -11,6 +11,7 @@ public class MultiTables {
 	@GET
 	@Produces (MediaType.TEXT_HTML)
 	public String getStatus(){
+		//http://localhost:8080/RestFaizKids/api/faiz/kids
 		return buildHTML("Kids Rest Web Services" , "BasicOperations");
 	}
 	
@@ -18,6 +19,8 @@ public class MultiTables {
 	@Path("/version")
 	@Produces (MediaType.TEXT_HTML)
 	public String getVersion()	{
+		
+		//http://localhost:8080/RestFaizKids/api/faiz/kids/version
 		return buildHTML("Version =" + version , "Version of the Restful Service");
 	}
 	
@@ -25,6 +28,8 @@ public class MultiTables {
 	@Path("/Table")
 	@Produces (MediaType.TEXT_HTML)
 	public String getTable( @QueryParam("number") int number){
+		
+		////http://localhost:8080/RestFaizKids/api/faiz/kids/Table?number=2
 		return buildHTMLTable("Table for " + number, "Multiplacation Table" , number);
 	}
 	
@@ -53,7 +58,7 @@ public class MultiTables {
 		
 		for(int i =1; i <11; i++){
 			sb.append("<tr><td>");
-			String line = i + "  *  " + num + "  =  " + i*num;
+			String line = num + "  *  " + i + "  =  " + i*num;
 			sb.append(line);
 			sb.append("</td></tr>");
 		}
@@ -86,7 +91,7 @@ private String buildHTML(String message, String title){
 		sb.append(message);
 		sb.append("</p>");
 		sb.append("</body>");
-		sb.append("</html");
+		sb.append("</html>");
 		
 		return sb.toString();
 	}
